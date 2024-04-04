@@ -1,0 +1,6 @@
+.git/
+/tmp/
+/bin/
+*.md
+*.tfstate
+LICENSE
