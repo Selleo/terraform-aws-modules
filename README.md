@@ -1,6 +1,7 @@
-# Terraform RENAME_ME module
+# Terraform AWS modules
 
-TODO
+This repository contains Terraform modules for AWS.
+Rather than using the modules it's better to copy the code and adjust it to your needs.
 
 <!-- BEGIN_TF_DOCS -->
 
