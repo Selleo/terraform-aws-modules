@@ -7,19 +7,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       name: Checkout source code
 
-    - uses: actions/cache@v3
+    - uses: actions/cache@v4
       name: Cache plugin dir
       with:
         path: ~/.tflint.d/plugins
         key: tflint-${{ hashFiles('.tflint.hcl') }}
 
-    - uses: terraform-linters/setup-tflint@v3
+    - uses: terraform-linters/setup-tflint@v4
       name: Setup TFLint
       with:
-        tflint_version: v0.45.0
+        tflint_version: v0.50.3
+        tflint_wrapper: true
 
     - name: Show version
       run: tflint --version
@@ -32,7 +33,11 @@ jobs:
 
     - name: Run TFLint
       run: |
-        tflint -f compact .
-        tflint -f compact modules/cloudfront-app
-        tflint -f compact modules/cloudfront-deployment-policy
-        tflint -f compact modules/cloudfront-s3-origin-bucket-policy
+        tflint -f compact --chdir .
+        tflint -f compact --chdir modules/cloudfront-app
+        tflint -f compact --chdir modules/cloudfront-deployment-policy
+        tflint -f compact --chdir modules/cloudfront-s3-origin-bucket-policy
+
+    - run: echo ${{ steps.tflint.outputs.stdout }}
+    - run: echo ${{ steps.tflint.outputs.stderr }}
+    - run: echo ${{ steps.tflint.outputs.exitcode }}
