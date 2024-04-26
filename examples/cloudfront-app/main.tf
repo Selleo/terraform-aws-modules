@@ -1,6 +1,6 @@
 resource "random_id" "example" {
   byte_length = 4
-  prefix      = "tf-example"
+  prefix      = "tf-example-"
 }
 
 resource "aws_s3_bucket" "this" {
