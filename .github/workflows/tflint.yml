@@ -33,4 +33,6 @@ jobs:
     - name: Run TFLint
       run: |
         tflint -f compact .
-        tflint -f compact modules/rename_me
+        tflint -f compact modules/cloudfront-app
+        tflint -f compact modules/cloudfront-deployment-policy
+        tflint -f compact modules/cloudfront-s3-origin-bucket-policy
