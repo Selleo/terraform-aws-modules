@@ -66,7 +66,6 @@ module "service" {
   subnet_ids    = module.vpc.public_subnets
   cluster_id    = module.cluster.id
   desired_count = 1
-  secrets       = ["/example/staging/api/terraform"]
 
   port = 3000
   depends_on = [module.secrets]
@@ -80,21 +79,6 @@ resource "aws_alb_listener" "http" {
   default_action {
     target_group_arn = module.service.lb_target_group_id
     type             = "forward"
-  }
-}
-
-module "secrets" {
-  source  = "Selleo/ssm/aws//modules/parameters"
-  version = "0.4.0"
-
-  context = {
-    namespace = "example"
-    stage     = "staging"
-    name      = "api"
-  }
-
-  secrets = {
-    APP_ENV = "staging"
   }
 }
 
