@@ -65,7 +65,7 @@
 | <a name="input_enable_execute_command"></a> [enable\_execute\_command](#input\_enable\_execute\_command) | Allow to exec into containers. | `bool` | `true` | no |
 | <a name="input_health_check"></a> [health\_check](#input\_health\_check) | Health check config for ALB target group. | <pre>object({<br>    path    = string<br>    matcher = string<br>  })</pre> | <pre>{<br>  "matcher": "200",<br>  "path": "/"<br>}</pre> | no |
 | <a name="input_health_check_threshold"></a> [health\_check\_threshold](#input\_health\_check\_threshold) | Health check thresholds for ALB target group. | <pre>object({<br>    timeout   = number<br>    interval  = number<br>    healthy   = number<br>    unhealthy = number<br>  })</pre> | <pre>{<br>  "healthy": 3,<br>  "interval": 15,<br>  "timeout": 10,<br>  "unhealthy": 3<br>}</pre> | no |
-| <a name="input_log_retention_in_days"></a> [log\_retention\_in\_days](#input\_log\_retention\_in\_days) | Log retention in days for Cloudwatch. | `string` | `365` | no |
+| <a name="input_log_retention_in_days"></a> [log\_retention\_in\_days](#input\_log\_retention\_in\_days) | Log retention in days for Cloudwatch. | `string` | `60` | no |
 | <a name="input_name"></a> [name](#input\_name) | ECS Service name. | `string` | n/a | yes |
 | <a name="input_one_off_commands"></a> [one\_off\_commands](#input\_one\_off\_commands) | Set of commands that the tasks are created for. | `set(string)` | `[]` | no |
 | <a name="input_port"></a> [port](#input\_port) | Container port | `number` | `null` | no |
