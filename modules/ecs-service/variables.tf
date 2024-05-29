@@ -125,7 +125,7 @@ variable "deployment_maximum_percent" {
 variable "log_retention_in_days" {
   type        = string
   description = "Log retention in days for Cloudwatch."
-  default     = 365
+  default     = 60
 }
 
 variable "efs" {
