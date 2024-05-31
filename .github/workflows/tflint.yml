@@ -32,11 +32,7 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
 
     - name: Run TFLint
-      run: |
-        tflint -f compact --chdir .
-        tflint -f compact --chdir modules/cloudfront-app
-        tflint -f compact --chdir modules/cloudfront-deployment-policy
-        tflint -f compact --chdir modules/cloudfront-s3-origin-bucket-policy
+      run: tflint --recursive -f compact
 
     - run: echo ${{ steps.tflint.outputs.stdout }}
     - run: echo ${{ steps.tflint.outputs.stderr }}
