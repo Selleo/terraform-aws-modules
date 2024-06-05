@@ -16,7 +16,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_cloudfront_invalidation_access"></a> [cloudfront\_invalidation\_access](#module\_cloudfront\_invalidation\_access) | ../../modules/cloudfront-invalidation | n/a |
+| <a name="module_cloudfront_invalidation_access"></a> [cloudfront\_invalidation\_access](#module\_cloudfront\_invalidation\_access) | ../../modules/iam/cloudfront-invalidation | n/a |
 
 ## Resources
 

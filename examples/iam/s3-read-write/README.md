@@ -16,7 +16,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_s3_full_access_policy"></a> [s3\_full\_access\_policy](#module\_s3\_full\_access\_policy) | ../../modules/s3-read-write | n/a |
+| <a name="module_s3_full_access_policy"></a> [s3\_full\_access\_policy](#module\_s3\_full\_access\_policy) | ../../modules/iam/s3-read-write | n/a |
 
 ## Resources
 

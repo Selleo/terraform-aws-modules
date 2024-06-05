@@ -10,5 +10,5 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_secrets"></a> [secrets](#module\_secrets) | ../../modules/developers | n/a |
+| <a name="module_secrets"></a> [secrets](#module\_secrets) | ../../modules/iam/developers | n/a |
 <!-- END_TF_DOCS -->
