@@ -59,8 +59,8 @@ output "iam_user2_secret" {
 }
 
 module "aws_iam_secret_manager_policy" {
-  source      = "../../../modules/iam/secret-manager"
-  name_prefix = "aws-iam-secret-manager"
+  source      = "../../../modules/iam/secrets-manager"
+  name_prefix = "aws-iam-secrets-manager"
   secrets = [
     aws_secretsmanager_secret.secret_no_1.arn,
     aws_secretsmanager_secret.secret_no_2.arn,
