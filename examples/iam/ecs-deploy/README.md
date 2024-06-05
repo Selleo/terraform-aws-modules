@@ -16,7 +16,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_aws_iam_ecs_policy"></a> [aws\_iam\_ecs\_policy](#module\_aws\_iam\_ecs\_policy) | ../../modules/iam/ecs-deploy | n/a |
+| <a name="module_aws_iam_ecs_policy"></a> [aws\_iam\_ecs\_policy](#module\_aws\_iam\_ecs\_policy) | ../../../modules/iam/ecs-deploy | n/a |
 | <a name="module_ecs_cluster"></a> [ecs\_cluster](#module\_ecs\_cluster) | Selleo/backend/aws//modules/ecs-cluster | n/a |
 | <a name="module_ecs_service"></a> [ecs\_service](#module\_ecs\_service) | Selleo/backend/aws//modules/ecs-service | n/a |
 | <a name="module_lb"></a> [lb](#module\_lb) | Selleo/backend/aws//modules/load-balancer | n/a |

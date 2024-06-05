@@ -17,7 +17,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_iam_app_xyz"></a> [iam\_app\_xyz](#module\_iam\_app\_xyz) | ../../modules/iam/user-with-access-key | n/a |
+| <a name="module_iam_app_xyz"></a> [iam\_app\_xyz](#module\_iam\_app\_xyz) | ../../../modules/iam/user-with-access-key | n/a |
 
 ## Resources
 

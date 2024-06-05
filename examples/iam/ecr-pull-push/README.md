@@ -16,7 +16,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_aws_iam_ecr_policy"></a> [aws\_iam\_ecr\_policy](#module\_aws\_iam\_ecr\_policy) | ../../modules/iam/ecr-pull-push | n/a |
+| <a name="module_aws_iam_ecr_policy"></a> [aws\_iam\_ecr\_policy](#module\_aws\_iam\_ecr\_policy) | ../../../modules/iam/ecr-pull-push | n/a |
 
 ## Resources
 
