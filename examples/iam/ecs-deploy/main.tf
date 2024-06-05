@@ -102,7 +102,7 @@ output "iam_user_secret" {
 }
 
 module "aws_iam_ecs_policy" {
-  source      = "../../modules/iam/ecs-deploy"
+  source      = "../../../modules/iam/ecs-deploy"
   name_prefix = "aws-iam"
   service_arn = module.ecs_service.service_id
   users       = [aws_iam_user.ecs.name]

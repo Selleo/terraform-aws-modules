@@ -1,5 +1,5 @@
 module "iam_app_xyz" {
-  source = "../../modules/iam/user-with-access-key"
+  source = "../../../modules/iam/user-with-access-key"
 
   name = "app-xyz-${random_id.id.hex}"
 

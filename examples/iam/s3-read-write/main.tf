@@ -21,7 +21,7 @@ output "iam_user_secret" {
 }
 
 module "s3_full_access_policy" {
-  source      = "../../modules/iam/s3-read-write"
+  source      = "../../../modules/iam/s3-read-write"
   name_prefix = "aws-iam"
   bucket_arn  = aws_s3_bucket.example_s3_bucket.arn
   users       = [aws_iam_user.s3_user.name]
