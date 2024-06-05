@@ -17,7 +17,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_aws_iam_secret_manager_policy"></a> [aws\_iam\_secret\_manager\_policy](#module\_aws\_iam\_secret\_manager\_policy) | ../../../modules/iam/secret-manager | n/a |
+| <a name="module_aws_iam_secret_manager_policy"></a> [aws\_iam\_secret\_manager\_policy](#module\_aws\_iam\_secret\_manager\_policy) | ../../../modules/iam/secrets-manager | n/a |
 
 ## Resources
 
