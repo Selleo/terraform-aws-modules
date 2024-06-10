@@ -17,18 +17,14 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_secrets"></a> [secrets](#module\_secrets) | ../../modules/parameters | n/a |
-| <a name="module_secrets_access"></a> [secrets\_access](#module\_secrets\_access) | ../../modules/parameters-access | n/a |
+| <a name="module_secrets"></a> [secrets](#module\_secrets) | ../../modules/ssm/parameters | n/a |
+| <a name="module_secrets_access"></a> [secrets\_access](#module\_secrets\_access) | ../../modules/ssm/parameters-access | n/a |
 
 ## Resources
 
 | Name | Type |
 |------|------|
 | [random_id.secret_key_base](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
-
-## Inputs
-
-No inputs.
 
 ## Outputs
 

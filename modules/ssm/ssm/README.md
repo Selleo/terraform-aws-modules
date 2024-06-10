@@ -36,19 +36,13 @@ No modules.
 | <a name="output_arn"></a> [arn](#output\_arn) | SSM document ARN |
 
 <!-- BEGIN_TF_DOCS -->
-## Requirements
 
-No requirements.
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
-
-## Modules
-
-No modules.
 
 ## Resources
 

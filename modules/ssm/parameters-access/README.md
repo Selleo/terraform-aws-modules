@@ -52,10 +52,6 @@ No modules.
 | <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | >= 3.0 |
 
-## Modules
-
-No modules.
-
 ## Resources
 
 | Name | Type |
