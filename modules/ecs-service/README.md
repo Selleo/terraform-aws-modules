@@ -68,10 +68,11 @@
 | <a name="input_log_retention_in_days"></a> [log\_retention\_in\_days](#input\_log\_retention\_in\_days) | Log retention in days for Cloudwatch. | `string` | `60` | no |
 | <a name="input_name"></a> [name](#input\_name) | ECS Service name. | `string` | n/a | yes |
 | <a name="input_one_off_commands"></a> [one\_off\_commands](#input\_one\_off\_commands) | Set of commands that the tasks are created for. | `set(string)` | `[]` | no |
-| <a name="input_port"></a> [port](#input\_port) | Container port | `number` | `null` | no |
 | <a name="input_secrets"></a> [secrets](#input\_secrets) | Paths to secret. All secrets are read under the path. | `set(string)` | `[]` | no |
+| <a name="input_service_discovery"></a> [service\_discovery](#input\_service\_discovery) | Service discovery configuration. | <pre>object({<br>    arn  = string<br>    name = string<br>  })</pre> | `null` | no |
 | <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | List of AWS subent IDs for service. | `list(string)` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional tags attached to resources. | `map(string)` | `{}` | no |
+| <a name="input_tcp_ports"></a> [tcp\_ports](#input\_tcp\_ports) | Port mapping. Use 0 for dynamic host mapping. Fargate requires ports to be the same. | <pre>list(<br>    object({<br>      name      = string<br>      host      = number<br>      container = number<br>    })<br>  )</pre> | `[]` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC id. | `string` | n/a | yes |
 
 ## Outputs

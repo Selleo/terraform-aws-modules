@@ -11,7 +11,7 @@ locals {
   }, var.tags)
 
   # when no ports are specified, we assume this is a worker
-  is_worker = var.port == null ? true : false
+  is_worker = var.tcp_ports == [] ? true : false
   # when LB is used ports must be specified
   needs_lb = var.create_alb_target_group && !local.is_worker
 
@@ -63,13 +63,23 @@ resource "aws_ecs_task_definition" "this" {
       cpu               = 64
       name              = var.name
       image             = "qbart/go-http-server-noop:0.3.0"
+      mountPoints = var.efs == null ? [] : [
+        {
+          sourceVolume  = var.efs.volume
+          containerPath = var.efs.mount_path
+          readOnly      = false
+        }
+      ],
+      volumesFrom = [],
       # workers do not need port mappings
       portMappings = local.is_worker ? [] : [
+        for port in var.tcp_ports :
         {
-          containerPort = var.port,
-          hostPort      = 0,
+          containerPort = port.container,
+          hostPort      = port.host, # fargate port must match container port
           protocol      = "tcp",
-        },
+          name          = port.name,
+        }
       ],
       environment = [
         {
@@ -78,7 +88,7 @@ resource "aws_ecs_task_definition" "this" {
         },
         {
           name  = "ADDR"
-          value = var.port == null ? ":3000" : ":${var.port}"
+          value = var.tcp_ports == [] ? ":3000" : ":${var.tcp_ports[0].container}"
         },
       ],
 
@@ -92,6 +102,21 @@ resource "aws_ecs_task_definition" "this" {
       },
     }
   ])
+
+  dynamic "volume" {
+    for_each = var.efs == null ? [] : [var.efs.volume]
+
+    content {
+      name = var.efs.volume
+
+      efs_volume_configuration {
+        file_system_id = var.efs.id
+        root_directory = "/"
+        # transit_encryption      = "ENABLED"
+        # transit_encryption_port = 2999
+      }
+    }
+  }
 
   tags = merge(local.tags, { "resource.group" = "compute" })
 }
@@ -126,6 +151,21 @@ resource "aws_ecs_task_definition" "one_off" {
     }
   ])
 
+  dynamic "volume" {
+    for_each = var.efs == null ? [] : [var.efs.volume]
+
+    content {
+      name = var.efs.volume
+
+      efs_volume_configuration {
+        file_system_id = var.efs.id
+        root_directory = "/"
+        # transit_encryption      = "ENABLED"
+        # transit_encryption_port = 2999
+      }
+    }
+  }
+
   tags = merge(local.tags, { "resource.group" = "compute" })
 }
 
@@ -143,7 +183,7 @@ resource "aws_ecs_service" "this" {
     content {
       target_group_arn = aws_alb_target_group.this[0].arn
       container_name   = var.name
-      container_port   = var.port
+      container_port   = var.tcp_ports[0].container
     }
   }
 
@@ -157,6 +197,37 @@ resource "aws_ecs_service" "this" {
     content {
       type  = ordered_placement_strategy.value.type
       field = ordered_placement_strategy.value.field
+    }
+  }
+
+  dynamic "service_connect_configuration" {
+    for_each = var.service_discovery == null ? [] : [var.service_discovery]
+
+    content {
+      enabled = true
+      log_configuration {
+        log_driver = "awslogs"
+        options = {
+          awslogs-group         = aws_cloudwatch_log_group.this.name,
+          awslogs-region        = data.aws_region.this.name,
+          awslogs-stream-prefix = "ecs-connect",
+        }
+      }
+      namespace = service_connect_configuration.value.arn
+
+      dynamic "service" {
+        for_each = var.tcp_ports
+
+        content {
+          client_alias {
+            port = service.value.container
+            # dns_name = service_connect_configuration.value.name
+          }
+          discovery_name = "${service_connect_configuration.value.name}-${service.value.name}"
+          # ingress_port_override = "" # - (Optional) Port number for the Service Connect proxy to listen on.
+          port_name = service.value.name
+        }
+      }
     }
   }
 
@@ -315,7 +386,7 @@ resource "aws_alb_target_group" "this" {
   count = local.needs_lb ? 1 : 0
 
   name                 = random_id.prefix.hex
-  port                 = var.port
+  port                 = var.tcp_ports[0].container
   protocol             = "HTTP"
   vpc_id               = var.vpc_id
   deregistration_delay = var.deregistration_delay # draining time

@@ -37,10 +37,16 @@ variable "desired_count" {
 
 # optional
 
-variable "port" {
-  description = "Container port"
-  type        = number
-  default     = null
+variable "tcp_ports" {
+  description = "Port mapping. Use 0 for dynamic host mapping. Fargate requires ports to be the same."
+  type = list(
+    object({
+      name      = string
+      host      = number
+      container = number
+    })
+  )
+  default = []
 }
 
 variable "enable_execute_command" {
@@ -136,4 +142,13 @@ variable "efs" {
   })
   description = "EFS volume to mount to ECS"
   default     = null
+}
+
+variable "service_discovery" {
+  description = "Service discovery configuration."
+  type = object({
+    arn  = string
+    name = string
+  })
+  default = null
 }
