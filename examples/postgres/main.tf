@@ -6,7 +6,7 @@ resource "random_id" "this" {
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 4.0"
+  version = "~> 5.0"
 
   name = random_id.this.hex
   cidr = "10.0.0.0/16"

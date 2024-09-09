@@ -8,7 +8,7 @@ module "info" {
 }
 
 module "cert" {
-  source = "../../modules/acm-wildcard"
+  source = "../../../modules/acm-wildcard"
 
   domain   = "hetzner.example.selleo.com"
   context  = module.info.context

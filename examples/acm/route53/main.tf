@@ -12,7 +12,7 @@ resource "aws_route53_zone" "example" {
 }
 
 module "cert" {
-  source = "../../modules/acm-wildcard"
+  source = "../../../modules/acm-wildcard"
 
   domain   = aws_route53_zone.example.name
   context  = module.info.context
