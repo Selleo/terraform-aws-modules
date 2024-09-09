@@ -11,14 +11,14 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_random"></a> [random](#provider\_random) | 3.2.0 |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.6.2 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_secrets"></a> [secrets](#module\_secrets) | ../../modules/ssm/parameters | n/a |
-| <a name="module_secrets_access"></a> [secrets\_access](#module\_secrets\_access) | ../../modules/ssm/parameters-access | n/a |
+| <a name="module_secrets"></a> [secrets](#module\_secrets) | ../../../modules/ssm/parameters | n/a |
+| <a name="module_secrets_access"></a> [secrets\_access](#module\_secrets\_access) | ../../../modules/ssm/parameters-access | n/a |
 
 ## Resources
 
