@@ -3,15 +3,15 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0.5 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 3.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.69.0 |
-| <a name="provider_tls"></a> [tls](#provider\_tls) | 3.1.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.64.0 |
+| <a name="provider_tls"></a> [tls](#provider\_tls) | 4.0.5 |
 
 ## Modules
 

@@ -1,5 +1,5 @@
 module "secrets" {
-  source = "../../modules/ssm/parameters"
+  source = "../../../modules/ssm/parameters"
 
   context = {
     namespace = "selleo"
@@ -22,7 +22,7 @@ module "secrets" {
 }
 
 module "secrets_access" {
-  source = "../../modules/ssm/parameters-access"
+  source = "../../../modules/ssm/parameters-access"
 
   context = {
     namespace = "selleo"
