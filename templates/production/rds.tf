@@ -1,7 +1,7 @@
 resource "random_id" "rds" {
   byte_length = 4
 
-  prefix = "selleo-aws-rds-postgres-"
+  prefix = "name-aws-rds-postgres-" # TODO adjust name to your project
 }
 
 
