@@ -24,9 +24,9 @@ module "db" {
   db_name    = "postgres" # TODO adjust name to your project
   db_user    = "user" # TODO adjust username to your project
 
-  parameters = {
-    "rds.force_ssl" = "1"
-  }
+  #parameters = {
+  #  "rds.force_ssl" = "0"
+  #}
   parameter_group_family = "postgres16"
   engine_version         = "16.1"
   instance_class         = "db.t4g.small"
