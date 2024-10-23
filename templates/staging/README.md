@@ -54,7 +54,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_region"></a> [region](#input\_region) | Default AWS region | `string` | `"eu-central-1"` | no |
+| <a name="input_region"></a> [region](#input\_region) | Default AWS region | `string` | `"todo"` | no |
 
 ## Outputs
 
