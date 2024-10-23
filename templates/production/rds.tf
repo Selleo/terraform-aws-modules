@@ -31,7 +31,4 @@ module "db" {
   engine_version         = "16.1"
   instance_class         = "db.t4g.small"
 
-  # for easy testing:
-  deletion_protection = true
-  apply_immediately   = false
 }
