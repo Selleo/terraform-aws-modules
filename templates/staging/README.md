@@ -26,7 +26,6 @@
 | <a name="module_database_subnet"></a> [database\_subnet](#module\_database\_subnet) | ../modules/vpc-private-subnet | n/a |
 | <a name="module_db"></a> [db](#module\_db) | ../modules/postgres | n/a |
 | <a name="module_ecr"></a> [ecr](#module\_ecr) | ../modules/ecr-repository | n/a |
-| <a name="module_info"></a> [info](#module\_info) | Selleo/context/null | 0.3.0 |
 | <a name="module_lb"></a> [lb](#module\_lb) | ../modules/lb/alb | n/a |
 | <a name="module_private_subnet"></a> [private\_subnet](#module\_private\_subnet) | ../modules/vpc-private-subnet | n/a |
 | <a name="module_public_subnet"></a> [public\_subnet](#module\_public\_subnet) | ../modules/vpc-public-subnet | n/a |
