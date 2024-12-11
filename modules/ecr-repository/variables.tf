@@ -22,8 +22,8 @@ variable "expire_untagged_after" {
   default     = 14
 }
 
-variable "max_preview_image" {
+variable "max_preview_images" {
   description = "Expire images tagged with 'preview-' when there are more than X"
   type        = number
-  default     = 10
+  default     = 20
 }

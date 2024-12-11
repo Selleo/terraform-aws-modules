@@ -32,7 +32,7 @@ resource "aws_ecr_lifecycle_policy" "this" {
   policy = templatefile("${path.module}/policy/lifecycle.json", {
     image_count   = var.max_image_count
     day_count     = var.expire_untagged_after
-    preview_image = var.max_preview_image
+    preview_image = var.max_preview_images
   })
 }
 
