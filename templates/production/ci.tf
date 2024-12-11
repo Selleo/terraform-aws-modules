@@ -47,7 +47,7 @@ module "secrets_ci" {
   context = {
     namespace = "name" # TODO adjust namespace to your project
     stage     = "production"
-    name      = "secrets"
+    name      = "ci-secrets"
   }
 
   secrets = {

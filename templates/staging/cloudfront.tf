@@ -26,7 +26,7 @@ module "cloudfront_app" {
   }
   app_id          = "example" # TODO adjust app_id to your project name
   s3_bucket       = aws_s3_bucket.this.bucket
-  aliases         = []
+  aliases         = [] # fill with proper domains
   certificate_arn = ""
 }
 

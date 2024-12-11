@@ -20,7 +20,7 @@ module "db" {
     subnet_group = module.private_subnet.database_subnet_group_id
   }
 
-  identifier = random_id.rds.hex
+  identifier = "name" # TODO adjust name to your project
   db_name    = "postgres" # TODO adjust name to your project
   db_user    = "user" # TODO adjust username to your project
 

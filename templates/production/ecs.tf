@@ -15,7 +15,7 @@ module "cluster" {
     name      = "cluster"
   }
 
-  name_prefix          = random_id.example.hex
+  name_prefix          = "name" # TODO adjust name to your project
   vpc_id               = module.vpc.id
   subnet_ids           = module.public_subnet.ids
   instance_type        = "t3.medium"
@@ -31,7 +31,7 @@ module "cluster" {
 module "service" {
   source = "../modules/ecs-service"
 
-  name          = random_id.example.hex
+  name          = "name" # TODO adjust name to your project
   vpc_id        = module.vpc.id
   subnet_ids    = module.public_subnet.ids
   cluster_id    = module.cluster.id

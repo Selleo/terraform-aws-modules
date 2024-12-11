@@ -69,10 +69,10 @@ module "database_subnet" {
 module "lb" {
   source = "../modules/lb/alb"
 
-  name        = random_id.example.hex
+  name        = "name" #TODO adjust name to your project
   vpc_id      = module.vpc.id
   subnet_ids  = module.public_subnet.ids
-  force_https = false
+  force_https = true
 
   context = local.context
 }
