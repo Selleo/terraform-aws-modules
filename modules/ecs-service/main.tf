@@ -446,6 +446,16 @@ data "aws_iam_policy_document" "update_service" {
 
     resources = [aws_ecs_service.this.id]
   }
+
+  statement {
+    actions = [
+      "ecs:TagResource",
+    ]
+
+    resources = [
+      "arn:aws:ecs:eu-central-1:${data.aws_caller_identity.this.account_id}:task-definition/${random_id.prefix.hex}:*"
+    ]
+  }
 }
 
 # policy for registering new task (IAM needs to pass role to task/execution role)
