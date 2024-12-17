@@ -453,7 +453,7 @@ data "aws_iam_policy_document" "update_service" {
     ]
 
     resources = [
-      "arn:aws:ecs:eu-central-1:${data.aws_caller_identity.this.account_id}:task-definition/${random_id.prefix.hex}:*"
+      "arn:aws:ecs:${data.aws_region.this.id}:${data.aws_caller_identity.this.account_id}:task-definition/${random_id.prefix.hex}:*"
     ]
   }
 }
