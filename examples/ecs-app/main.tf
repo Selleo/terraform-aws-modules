@@ -87,7 +87,7 @@ module "service" {
   tcp_ports = [{
       name      = "http"
       host      = 0
-      container = 3000
+      container = 80
     }]
 
   context = local.context

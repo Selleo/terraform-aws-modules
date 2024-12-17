@@ -62,7 +62,7 @@ resource "aws_ecs_task_definition" "this" {
       memory            = 64
       cpu               = 64
       name              = var.name
-      image             = "qbart/go-http-server-noop:0.3.0"
+      image             = "nginx:1.27.3-alpine"
       mountPoints = var.efs == null ? [] : [
         {
           sourceVolume  = var.efs.volume
@@ -81,16 +81,7 @@ resource "aws_ecs_task_definition" "this" {
           name          = port.name,
         }
       ],
-      environment = [
-        {
-          name  = "APP_ENV"
-          value = var.context.stage
-        },
-        {
-          name  = "ADDR"
-          value = var.tcp_ports == [] ? ":3000" : ":${var.tcp_ports[0].container}"
-        },
-      ],
+      environment = [],
 
       logConfiguration = {
         logDriver = "awslogs",
