@@ -25,6 +25,19 @@
       "action": {
         "type": "expire"
       }
+    },
+    {
+      "rulePriority": 3,
+      "description": "Removes last ${preview_image} when prefix is: 'preview-'",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ["preview-"],
+        "countType": "imageCountMoreThan",
+        "countNumber": ${preview_image}
+      },
+      "action": {
+        "type": "expire"
+      }
     }
   ]
 }

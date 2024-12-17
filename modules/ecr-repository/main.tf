@@ -30,8 +30,9 @@ resource "aws_ecr_lifecycle_policy" "this" {
   repository = aws_ecr_repository.this.name
 
   policy = templatefile("${path.module}/policy/lifecycle.json", {
-    image_count = var.max_image_count
-    day_count   = var.expire_untagged_after
+    image_count   = var.max_image_count
+    day_count     = var.expire_untagged_after
+    preview_image = var.max_preview_images
   })
 }
 

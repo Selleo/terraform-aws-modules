@@ -30,6 +30,7 @@
 | <a name="input_context"></a> [context](#input\_context) | Project context | <pre>object({<br>    namespace = string<br>    stage     = string<br>    name      = string<br>  })</pre> | n/a | yes |
 | <a name="input_expire_untagged_after"></a> [expire\_untagged\_after](#input\_expire\_untagged\_after) | Expire untagged images after X days | `number` | `14` | no |
 | <a name="input_max_image_count"></a> [max\_image\_count](#input\_max\_image\_count) | Keep only last X images that are prefixed with `v` | `number` | `100` | no |
+| <a name="input_max_preview_images"></a> [max\_preview\_images](#input\_max\_preview\_images) | Expire images tagged with 'preview-' when there are more than X | `number` | `20` | no |
 
 ## Outputs
 
