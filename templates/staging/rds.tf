@@ -1,5 +1,5 @@
 module "db" {
-  source = "../modules/postgres"
+  source = "../../modules/postgres"
 
   context = {
     namespace = "name" # TODO adjust name to your project

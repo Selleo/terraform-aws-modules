@@ -1,5 +1,5 @@
 module "ecr" {
-  source = "../modules/ecr-repository"
+  source = "../../modules/ecr-repository"
 
   context = {  
     namespace = "name" # TODO adjust name to your project

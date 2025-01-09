@@ -17,7 +17,7 @@ resource "aws_s3_bucket_public_access_block" "this" {
 }
 
 module "cloudfront_app" {
-  source = "../modules/cloudfront-app"
+  source = "../../modules/cloudfront-app"
 
   context = {
     namespace = "template" # TODO adjust namespace to your project name
@@ -31,7 +31,7 @@ module "cloudfront_app" {
 }
 
 module "cloudfront_deployment_policy" {
-  source = "../modules/cloudfront-deployment-policy"
+  source = "../../modules/cloudfront-deployment-policy"
 
   s3_bucket_arn   = aws_s3_bucket.this.arn
   cloudfront_arns = [module.cloudfront_app.arn]
@@ -39,7 +39,7 @@ module "cloudfront_deployment_policy" {
 }
 
 module "cloudfront_bucket_policy" {
-  source = "../modules/cloudfront-s3-origin-bucket-policy"
+  source = "../../modules/cloudfront-s3-origin-bucket-policy"
 
   s3_bucket       = aws_s3_bucket.this.bucket
   cloudfront_arns = [module.cloudfront_app.arn]

@@ -7,14 +7,14 @@ locals {
 }
 
 module "vpc" {
-  source = "../modules/vpc"
+  source = "../../modules/vpc"
 
   name = "name" # TODO adjust name to your project
   cidr = "10.0.0.0/16"
 }
 
 module "public_subnet" {
-  source = "../modules/vpc-public-subnet"
+  source = "../../modules/vpc-public-subnet"
 
   vpc_id              = module.vpc.id
   internet_gateway_id = module.vpc.internet_gateway_id
@@ -33,7 +33,7 @@ module "public_subnet" {
 }
 
 module "private_subnet" {
-  source = "../modules/vpc-private-subnet"
+  source = "../../modules/vpc-private-subnet"
 
   context = local.context
   vpc_id  = module.vpc.id
@@ -51,7 +51,7 @@ module "private_subnet" {
 }
 
 module "database_subnet" {
-  source = "../modules/vpc-private-subnet"
+  source = "../../modules/vpc-private-subnet"
 
   context = local.context
   vpc_id  = module.vpc.id
@@ -67,7 +67,7 @@ module "database_subnet" {
 }
 
 module "lb" {
-  source = "../modules/lb/alb"
+  source = "../../modules/lb/alb"
 
   name        = "name" #TODO adjust name to your project
   vpc_id      = module.vpc.id

@@ -1,7 +1,7 @@
 # cluster
 
 module "cluster" {
-  source = "../modules/ecs-cluster"
+  source = "../../modules/ecs-cluster"
 
   context = {
     namespace = "name" # TODO adjust name to your project
@@ -23,7 +23,7 @@ module "cluster" {
 }
 
 module "service" {
-  source = "../modules/ecs-service"
+  source = "../../modules/ecs-service"
 
   name          = "name" # TODO adjust name to your project
   vpc_id        = module.vpc.id

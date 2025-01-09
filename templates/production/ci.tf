@@ -1,5 +1,5 @@
 module "ci_iam" {
-  source  = "../modules/iam/user-with-access-key"
+  source  = "../../modules/iam/user-with-access-key"
 
   name = "name-production-ci" # TODO adjust name to your project
 
@@ -42,7 +42,7 @@ data "aws_iam_policy_document" "ci_user" {
 }
 
 module "secrets_ci" {
-  source  = "../modules/ssm/parameters"
+  source  = "../../modules/ssm/parameters"
 
   context = {
     namespace = "name" # TODO adjust namespace to your project
