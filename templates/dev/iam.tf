@@ -5,8 +5,7 @@ resource "aws_iam_group" "emails" {
 # users
 
 module "iam_user" {
-  source  = "Selleo/iam/aws//modules/user-with-access-key"
-  version = "0.7.0"
+  source  = "../../modules/iam/user-with-access-key"
 
   name = "name" # TODO adjust name to your project
 
@@ -25,8 +24,7 @@ resource "aws_iam_group_policy_attachment" "allow_emails_sending" {
 
 # allows reading secrets from SSM
 module "allow_secrets_access" {
-  source  = "Selleo/ssm/aws//modules/parameters-access"
-  version = "0.4.0"
+  source  = "../../modules/ssm/parameters-access"
 
   context = {
     namespace = "name" # TODO adjust name to your project

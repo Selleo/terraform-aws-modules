@@ -1,9 +1,3 @@
-resource "random_id" "example" {
-  byte_length = 2
-
-  prefix = "discovery-"
-}
-
 # cluster
 
 module "cluster" {

@@ -9,7 +9,7 @@ locals {
 module "vpc" {
   source = "../modules/vpc"
 
-  name = random_id.example.hex
+  name = "name" # TODO adjust name to your project
   cidr = "10.0.0.0/16"
 }
 

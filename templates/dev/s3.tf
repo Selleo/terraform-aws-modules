@@ -11,8 +11,7 @@ module "storage_s3_read_write" {
 }
 
 module "iam" {
-  source  = "Selleo/iam/aws//modules/user-with-access-key"
-  version = "0.7.0"
+  source  = "../../modules/iam/user-with-access-key"
 
   name = "name" # TODO adjust name to your project
 }

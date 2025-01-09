@@ -1,10 +1,3 @@
-resource "random_id" "rds" {
-  byte_length = 4
-
-  prefix = "name-aws-rds-postgres-" # TODO adjust name to your project
-}
-
-
 module "db" {
   source = "../modules/postgres"
 

@@ -4,7 +4,7 @@ resource "random_id" "cdn" {
 }
 
 resource "aws_s3_bucket" "this" {
-  bucket = "apps-${random_id.cdn.hex}" 
+  bucket = "apps-name" # TODO adjust name to your project
 }
 
 resource "aws_s3_bucket_public_access_block" "this" {
