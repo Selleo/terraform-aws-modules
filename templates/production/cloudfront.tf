@@ -1,13 +1,8 @@
-resource "random_id" "cdn" {
-  byte_length = 4
-  prefix      = "tf-name-" # TODO adjust name to your project
-}
-
-resource "aws_s3_bucket" "this" {
+resource "aws_s3_bucket" "apps_storage" {
   bucket = "apps-name" # TODO adjust name to your project
 }
 
-resource "aws_s3_bucket_public_access_block" "this" {
+resource "aws_s3_bucket_public_access_block" "apps_policy" {
   bucket = aws_s3_bucket.this.id
 
   block_public_acls       = true

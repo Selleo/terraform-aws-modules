@@ -44,10 +44,6 @@ module "private_subnet" {
       cidr = "10.0.51.0/24"
     }
   }
-
-  nat_gateway_routing = {
-    "a" = module.public_subnet.nat_gateways["eu-central-1a"]
-  }
 }
 
 module "database_subnet" {

@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "this" {
+resource "aws_s3_bucket" "apps_storage" {
   bucket = "apps-name" # TODO adjust name to your project
 }
 
