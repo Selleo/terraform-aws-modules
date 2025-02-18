@@ -494,7 +494,7 @@ data "aws_iam_policy_document" "run_task" {
     actions = ["ecs:RunTask"]
 
     resources = [
-      "arn:aws:ecs:${data.aws_region.this.id}:${data.aws_caller_identity.this.id}:task-definition/${random_id.prefix.hex}-${each.key}"
+      "arn:aws:ecs:${data.aws_region.this.id}:${data.aws_caller_identity.this.id}:task-definition/${random_id.prefix.hex}-${each.key}:*"
     ]
   }
 }
