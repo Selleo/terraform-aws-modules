@@ -56,11 +56,11 @@ resource "aws_ecs_task_definition" "this" {
   container_definitions = jsonencode([
     {
       essential         = true,
-      memoryReservation = 32
-      memory            = 64
-      cpu               = 64
+      memoryReservation = var.limits.mem_min
+      memory            = var.limits.mem_max
+      cpu               = var.limits.cpu
       name              = var.name
-      image             = "nginx:1.27.3-alpine"
+      image             = var.image
       mountPoints = var.efs == null ? [] : [
         {
           sourceVolume  = var.efs.volume

@@ -10,6 +10,14 @@ variable "context" {
   })
 }
 
+variable "instances" {
+  type = map(object({
+    ip        = string
+    subnet_id = string
+  }))
+  description = "Instances to create in the cluster."
+}
+
 variable "name_prefix" {
   type        = string
   description = "Name prefix (hyphen suffix should be skipped)."

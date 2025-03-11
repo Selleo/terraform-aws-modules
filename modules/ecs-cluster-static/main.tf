@@ -5,6 +5,7 @@ locals {
     "context.namespace"   = var.context.namespace
     "context.stage"       = var.context.stage
     "context.name"        = var.context.name
+    "Name"                = random_id.prefix.hex
   }, var.tags)
 }
 
@@ -59,54 +60,26 @@ resource "aws_placement_group" "this" {
   tags = merge(local.tags, { "resource.group" = "compute" })
 }
 
-resource "aws_autoscaling_group" "this" {
-  name                = random_id.prefix.hex
-  vpc_zone_identifier = var.subnet_ids
-
-  min_size              = var.autoscaling_group.min_size
-  desired_capacity      = var.autoscaling_group.desired_capacity
-  max_size              = var.autoscaling_group.max_size
-  protect_from_scale_in = var.protect_from_scale_in
-
-  placement_group      = aws_placement_group.this.id
-  termination_policies = ["OldestInstance"]
-
-  default_cooldown          = 300
-  wait_for_capacity_timeout = "480s"
-  health_check_grace_period = 15
-  health_check_type         = "EC2"
+resource "aws_instance" "this" {
+  for_each = var.instances
 
   launch_template {
     id      = aws_launch_template.this.id
     version = "$Latest"
   }
+  private_ip      = each.value.ip
+  subnet_id       = each.value.subnet_id
+  placement_group = aws_placement_group.this.id
 
-  tag {
-    key                 = "Name"
-    value               = random_id.prefix.hex
-    propagate_at_launch = true
-  }
-
-  tag {
-    key                 = var.ssm_tag_key
-    value               = var.ssm_tag_value
-    propagate_at_launch = true
-  }
-
-  dynamic "tag" {
-    for_each = merge(local.tags, { "resource.group" = "compute" })
-    content {
-      key                 = tag.key
-      value               = tag.value
-      propagate_at_launch = true
-    }
-  }
-
-  force_delete = false
+  tags = merge(local.tags, {
+    "resource.group"     = "compute"
+    "${var.ssm_tag_key}" = var.ssm_tag_value
+    Name                 = "${random_id.prefix.hex}-${each.key}"
+  })
 
   lifecycle {
-    create_before_destroy = true
-    ignore_changes        = [target_group_arns]
+    create_before_destroy = false
+    ignore_changes        = []
   }
 }
 

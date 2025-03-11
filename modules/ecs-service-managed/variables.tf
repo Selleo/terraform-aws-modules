@@ -35,6 +35,19 @@ variable "desired_count" {
   description = "Desired task count."
 }
 
+variable "image" {
+  type        = string
+  description = "ECS Service image."
+}
+
+variable "limits" {
+  type = object({
+    mem_min = number
+    cpu     = number
+    mem_max = number
+  })
+  description = "Limits for the service."
+}
 # optional
 
 variable "tcp_ports" {
