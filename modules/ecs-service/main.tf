@@ -452,9 +452,15 @@ data "aws_iam_policy_document" "update_service" {
       "ecs:TagResource",
     ]
 
-    resources = [
-      "arn:aws:ecs:${data.aws_region.this.id}:${data.aws_caller_identity.this.account_id}:task-definition/${random_id.prefix.hex}:*"
-    ]
+    resources = concat(
+      [
+        "arn:aws:ecs:${data.aws_region.this.id}:${data.aws_caller_identity.this.account_id}:task-definition/${random_id.prefix.hex}:*",
+      ],
+      [
+        for cmd in var.one_off_commands :
+        "arn:aws:ecs:${data.aws_region.this.id}:${data.aws_caller_identity.this.account_id}:task-definition/${random_id.prefix.hex}-${cmd}:*"
+      ],
+    )
   }
 }
 
