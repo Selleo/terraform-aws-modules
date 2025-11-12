@@ -32,3 +32,8 @@ output "deployment_group_arn" {
   value       = aws_iam_group.deployment.arn
   description = "Deployment group ARN"
 }
+
+output "bucket_name" {
+  value       = aws_s3_bucket.this.bucket
+  description = "Name of the storage S3 bucket."
+}
