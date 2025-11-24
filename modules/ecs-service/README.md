@@ -85,5 +85,7 @@
 | <a name="output_name"></a> [name](#output\_name) | Service name. |
 | <a name="output_service_id"></a> [service\_id](#output\_service\_id) | ARN that identifies the service. |
 | <a name="output_task_execution_role_id"></a> [task\_execution\_role\_id](#output\_task\_execution\_role\_id) | ECS task execution role ID |
+| <a name="output_task_one_off_template"></a> [task\_one\_off\_template](#output\_task\_one\_off\_template) | Task json template for one-off commands |
 | <a name="output_task_role_id"></a> [task\_role\_id](#output\_task\_role\_id) | ECS task role ID |
+| <a name="output_task_template"></a> [task\_template](#output\_task\_template) | Task json template for service |
 <!-- END_TF_DOCS -->
