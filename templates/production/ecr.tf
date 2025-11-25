@@ -10,5 +10,4 @@ module "ecr" {
 
 output "url" {
   value = module.ecr.url
-
 }

@@ -31,6 +31,8 @@ module "service" {
   cluster_id    = module.cluster.id
   desired_count = 1
 
+  secrets = ["/name/production/service/terraform", "/name/production/service/editable"]
+
   tcp_ports = [{
       name      = "http"
       host      = 0
@@ -43,3 +45,11 @@ module "service" {
     name      = "ecs"
   }
 }
+
+# TODO Optional variable to create SSM parameter for private key
+# resource "aws_ssm_parameter" "private_key" {  
+#   name        = "/ecs/config/PRIVATE_KEY_PEM"
+#   description = "Private key for EC2 instance"
+#   type        = "SecureString"
+#   value       = module.cluster.private_key_pem
+# }

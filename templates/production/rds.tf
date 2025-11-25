@@ -23,5 +23,4 @@ module "db" {
   parameter_group_family = "postgres16"
   engine_version         = "16.1"
   instance_class         = "db.t4g.small"
-
 }
