@@ -48,6 +48,7 @@
 | Name | Description |
 |------|-------------|
 | <a name="output_arn"></a> [arn](#output\_arn) | CDN distribution ARN. |
+| <a name="output_bucket_name"></a> [bucket\_name](#output\_bucket\_name) | Name of the storage S3 bucket. |
 | <a name="output_deployment_group"></a> [deployment\_group](#output\_deployment\_group) | Deployment group name |
 | <a name="output_deployment_group_arn"></a> [deployment\_group\_arn](#output\_deployment\_group\_arn) | Deployment group ARN |
 | <a name="output_deployment_policy_id"></a> [deployment\_policy\_id](#output\_deployment\_policy\_id) | IAM policy for deploying CloudFront distribution. |
