@@ -160,3 +160,21 @@ variable "parameters" {
   description = "Configuration for parameters group"
   default     = {}
 }
+
+variable "storage_type" {
+  description = "The type of storage to use (e.g., gp2, gp3, io1)."
+  type        = string
+  default     = "gp3"
+}
+
+variable "iops" {
+  description = "The amount of provisioned IOPS. Setting this is only valid for storage_type gp3, io1, or io2."
+  type        = number
+  default     = null # For gp3, AWS defaults to 3000 IOPS if null
+}
+
+variable "storage_throughput" {
+  description = "Storage throughput (in MiBps) to be configured on the RDS instance. Only valid for gp3."
+  type        = number
+  default     = null # For gp3, AWS defaults to 125 MiB/s if null
+}
