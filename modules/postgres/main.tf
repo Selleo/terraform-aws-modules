@@ -75,6 +75,7 @@ resource "aws_db_instance" "this" {
   engine_version = var.engine_version
 
   instance_class        = var.instance_class
+  storage_type          = var.storage_type
   allocated_storage     = var.allocated_storage
   max_allocated_storage = var.max_allocated_storage
   storage_encrypted     = true

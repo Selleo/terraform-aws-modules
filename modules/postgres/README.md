@@ -43,6 +43,7 @@
 | <a name="input_engine_version"></a> [engine\_version](#input\_engine\_version) | Postgres version. | `string` | n/a | yes |
 | <a name="input_identifier"></a> [identifier](#input\_identifier) | RDS identifier. | `string` | n/a | yes |
 | <a name="input_instance_class"></a> [instance\_class](#input\_instance\_class) | Instance class. | `string` | `"db.t4g.micro"` | no |
+| <a name="input_iops"></a> [iops](#input\_iops) | The amount of provisioned IOPS. Setting this is only valid for storage\_type gp3, io1, or io2. | `number` | `null` | no |
 | <a name="input_logs_retention_in_days"></a> [logs\_retention\_in\_days](#input\_logs\_retention\_in\_days) | Postgres and upgrade logs retention counted in days. | `number` | `60` | no |
 | <a name="input_maintenance_window"></a> [maintenance\_window](#input\_maintenance\_window) | Maintenance window | `string` | `"Mon:00:00-Mon:02:00"` | no |
 | <a name="input_max_allocated_storage"></a> [max\_allocated\_storage](#input\_max\_allocated\_storage) | Max allocated storage size (GiB) | `number` | `100` | no |
@@ -54,6 +55,8 @@
 | <a name="input_port"></a> [port](#input\_port) | Database port | `number` | `5432` | no |
 | <a name="input_publicly_accessible"></a> [publicly\_accessible](#input\_publicly\_accessible) | DB publicly accessible | `bool` | `false` | no |
 | <a name="input_snapshot_identifier"></a> [snapshot\_identifier](#input\_snapshot\_identifier) | Snapshot identifier to restore from. | `string` | `null` | no |
+| <a name="input_storage_throughput"></a> [storage\_throughput](#input\_storage\_throughput) | Storage throughput (in MiBps) to be configured on the RDS instance. Only valid for gp3. | `number` | `null` | no |
+| <a name="input_storage_type"></a> [storage\_type](#input\_storage\_type) | The type of storage to use (e.g., gp2, gp3, io1). | `string` | `"gp3"` | no |
 | <a name="input_vpc"></a> [vpc](#input\_vpc) | VPC configuration (id, CIDR that has access to RDS and subnet). | <pre>object({<br>    id           = string<br>    cidr         = string<br>    subnet_group = string<br>  })</pre> | n/a | yes |
 
 ## Outputs
