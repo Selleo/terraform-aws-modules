@@ -3,12 +3,11 @@ module "ecr" {
 
   context = {  
     namespace = "name" # TODO adjust name to your project
-    stage     = "production"
+    stage     = "staging"
     name      = "api"
   }
 }
 
 output "url" {
   value = module.ecr.url
-
 }

@@ -1,13 +1,13 @@
 terraform {
   required_version = "~> 1.0"
 
-  # cloud {
-  #   organization = "organization" # TODO adjust name to your project
-
-  #   workspaces {
-  #     name = "workspace" # TODO adjust name to your project
-  #   }
-  # }
+  backend "s3" {
+    key          = "staging/terraform.tfstate"
+    bucket       = "name-staging-tf-state" # TODO adjust name to your project
+    region       = var.region
+    encrypt      = true
+    use_lockfile = true
+  }
 
   required_providers {
     aws = {
